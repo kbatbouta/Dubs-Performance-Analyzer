@@ -46,22 +46,25 @@ namespace DubsAnalyzer
             Analyzer.harmony.Patch(secondFlag, null, reaction);
             Analyzer.harmony.Patch(thirdFlag, null, reaction);
 
-            var skiff2 = AccessTools.Method(typeof(Alert_Thought), nameof(Alert_Thought.GetReport));
+            var meth = AccessTools.Method(typeof(Alert_Thought), nameof(Alert_Thought.GetReport));
             var pre = new HarmonyMethod(typeof(H_Alert_Clothing), nameof(AlertCheck));
             var post = new HarmonyMethod(typeof(H_Alert_Clothing), nameof(PostCheck));
 
-
-            Analyzer.harmony.Patch(skiff2, pre, post);
+            Analyzer.harmony.Patch(meth, pre, post);
         }
 
         public static void UpdateFlag()  
         {
+            if (!Analyzer.Settings.OptimiseAlerts) return;
+
             tattered.dirty = true;
             nudist.dirty = true;
         }
 
         public static bool AlertCheck(Alert __instance)
         {
+            if (!Analyzer.Settings.OptimiseAlerts) return true;
+
             if (__instance is Alert_TatteredApparel)
                 if (tattered.Dirty()) return true;
 
@@ -73,6 +76,8 @@ namespace DubsAnalyzer
 
         public static void PostCheck(Alert __instance, ref AlertReport __result)
         {
+            if (!Analyzer.Settings.OptimiseAlerts) return;
+
             if (__instance is Alert_TatteredApparel)
             {
                 if (!tattered.changed)

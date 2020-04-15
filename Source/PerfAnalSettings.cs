@@ -41,6 +41,7 @@ namespace DubsAnalyzer
         public bool MeshOnlyBuildings;
         public bool NeverCheckJobsOnDamage;
         public bool OptimizeDrawInspectGizmoGrid;
+        public bool OptimiseAlerts;
         public bool OverrideAlerts;
         public bool OverrideBuildRoof;
         public bool ReplaceIngredientFinder;
@@ -63,6 +64,7 @@ namespace DubsAnalyzer
             Scribe_Values.Look(ref HumanoidOnlyWarden, "HumanoidOnlyWarden");
             Scribe_Values.Look(ref OverrideBuildRoof, "OverrideBuildRoof");
             Scribe_Values.Look(ref OverrideAlerts, "OverrideAlerts");
+            Scribe_Values.Look(ref OptimiseAlerts, "OptimiseAlerts");
             Scribe_Values.Look(ref KillMusicMan, "KillMusicMan");
           //  Scribe_Values.Look(ref MuteGC, "MuteGC");
             Scribe_Collections.Look(ref Loggers, "Loggers");
@@ -104,6 +106,7 @@ namespace DubsAnalyzer
                 ref Analyzer.Settings.FixGame);
          //   DubGUI.Checkbox("Fix memory leak on beds and room stats", listing, ref Analyzer.Settings.FixBedMemLeak);
             DubGUI.Checkbox("RoofOptimize".Translate(), listing, ref Analyzer.Settings.OverrideBuildRoof);
+            DubGUI.Checkbox("OptimiseAlerts".Translate(), listing, ref Analyzer.Settings.OptimiseAlerts);
             DubGUI.Checkbox("OverrideAlerts".Translate(), listing, ref Analyzer.Settings.OverrideAlerts);
             DubGUI.Checkbox("GizmoOpti".Translate(), listing, ref Analyzer.Settings.OptimizeDrawInspectGizmoGrid);
             var jam = Analyzer.Settings.MeshOnlyBuildings;
