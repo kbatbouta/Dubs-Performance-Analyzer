@@ -19,6 +19,11 @@ namespace DubsAnalyzer
             Analyzer.harmony = new Harmony("Dubwise.DubsProfiler"); 
             Analyzer.perfharmony = new Harmony("Dubwise.DubsOptimizer"); // makes sense 
 
+            var meth = AccessTools.Method("DubsBadHygiene.Alert_ContaminatedTower:GetReport");
+            var pa = new HarmonyMethod(typeof(GenericTranspiler), "Transpiler");
+
+            Analyzer.harmony.Patch(meth, null, null, pa);
+
             H_KeyPresses.PatchMe();
 
             var modes = GenTypes.AllTypes.Where(m => m.TryGetAttribute<PerformancePatch>(out _));

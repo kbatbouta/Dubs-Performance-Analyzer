@@ -19,8 +19,6 @@ namespace DubsAnalyzer
     [StaticConstructorOnStartup]
     public static class Dialog_ModdingTools
     {
-        // Custom patch a method, 
-        // Type
         public static CurrentInput input = CurrentInput.Method;
         public static UpdateMode patchType = UpdateMode.Update;
 
@@ -61,7 +59,7 @@ namespace DubsAnalyzer
                 case CurrentInput.Type: FieldDescription = "Type"; break;
                 case CurrentInput.MethodHarmony: FieldDescription = "Type:Method"; break;
                 case CurrentInput.TypeHarmony: FieldDescription = "Type"; break;
-                    //case CurrentInput.Assembly: FieldDescription = "AssemblyName"; break;
+                //case CurrentInput.Assembly: FieldDescription = "AssemblyName"; break;
             }
 
             Rect inputBox = listing.GetRect(25f);

@@ -66,6 +66,8 @@
     <Compile Include="ProfileLog.cs" />
     <Compile Include="ProfileMode.cs" />
     <Compile Include="ProfilerPatches\Custom\PatchUtils.cs" />
+    <Compile Include="ProfilerPatches\Custom\TranspilerMess\Transpiler.cs" />
+    <Compile Include="ProfilerPatches\Custom\TranspilerMess\Utility.cs" />
     <Compile Include="ProfileTab.cs" />
     <Compile Include="Profiler.cs" />
     <Compile Include="ProfilerHistory.cs" />
@@ -136,6 +138,7 @@
       <Private>False</Private>
     </Reference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
